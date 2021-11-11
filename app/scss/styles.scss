@@ -1,36 +1,38 @@
 @import './var.scss';
 
+body {
+  padding: 0;
+  margin: 0;
+}
 .container{
   display: grid;
-  grid-template-columns: 0.4fr 1fr;
+  display: flex;
   position: relative;
-  transition: 2s;
+  transition: all .3s ease-in-out;
 
 }
-.activeContainer{
-  grid-template-columns: 50px 1fr;
-  transition: 2s;
-}
-
 .sidebar {
-  background: #f8f8f8;
+  background: $main-silver;
   min-height: 100vh;
-  transition: 2s;
+  width: 250px;
+  transition: all .3s ease-in-out;
   &__title{
-    color :#fff;
-    background: #000;
+    color : $main-white;
+    background: $main-black;
     font-size: 30px;
     display: flex;
     justify-content: center;
     margin: 0;
+    padding: 5px;
   }
    &__logo{
      padding: 20px;
      font-size: 40px;
+     position: relative;
      margin: 0;
      &__txt {
-      background: #fff;
-     color: #000;
+      background: $main-white;
+     color: $main-black;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -40,71 +42,81 @@
 }
 .burger {
 	display: flex;
+  position: relative;
 	flex-direction: column;
 	justify-content: space-between;
 	width: 30px;
 	height: 20px;
+  &__dash {
+    width: 30px;
+    height: 3px;
+    background: $main-white;
+    border-radius: 20px;
+    transition: all .3s ease-in-out;
+    &:nth-of-type(3) {
+      position: absolute;
+      top: 9x
+    }
+  }
   &:hover {
     cursor: pointer;
   }
 }
-.burger .dash {
-	width: 30px;
-	height: 3px;
-	background: #fff;
-	border-radius: 20px;
-	transition: 0.25s;
-
-}
-.burger .dash:nth-of-type(3) {
-	position: absolute;
-	top: 16px
-}
 .activebrgr{
   position: absolute;
   left: 12px;
+  .dash{
+    &:nth-of-type(1) {
+      opacity: 0;
+    }
+    &:nth-of-type(3) {
+      transform: rotate(45deg);
+    }
+    &:nth-of-type(2) {
+      transform: rotate(-45deg);
+    }
+  }
 }
-.activebrgr .dash:nth-of-type(1) {
-	opacity: 0;
-}
-.activebrgr .dash:nth-of-type(4) {
-	opacity: 0;
-}
-.activebrgr .dash:nth-of-type(3) {
-	transform: rotate(45deg);
-}
-.activebrgr .dash:nth-of-type(2) {
-	transform: rotate(-45deg);
-}
-
 .content {
+  width: 100%;
   &__header{
-    background: #000;
+    background: $main-black;
     box-sizing: border-box;
     padding: 2px 0 2px 20px;
-    min-height: 34px;
+    min-height: 44px;
     display: flex;
     align-items: center;
   }
 }
 .nav{ 
   padding: 20px;
-  li {
+  &__item {
     list-style: none;
     margin-bottom: 10px;
+    display: flex;
+    overflow: hidden;
+    flex-wrap: nowrap;
+    .fa{
+      margin-right: 20px;
+      display: block;
+    }
   }
 }
-.activeContainer .nav li span {
-  display: none;
+.activeSidebar{
+  width: 60px;
 }
-.activeContainer .sidebar__title {
-  width: 100%;
-  text-indent: -9999px;
-}
-.activeContainer .sidebar__logo{
-  display: none;
-}
-.activeContainer .burger .dash:nth-of-type(3) {
-	position: absolute;
-	top: 9px
+
+.activeContainer {
+  .sidebar__title {
+    width: 100%;
+    text-indent: -9999px;
+  }
+  .sidebar__logo{
+    position: absolute;
+    left: -200px;
+  }
+  .burger .dash:nth-of-type(3) {
+    position: absolute;
+    top: 9p
+  }
 }
