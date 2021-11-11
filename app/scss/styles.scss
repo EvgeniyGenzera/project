@@ -8,8 +8,6 @@ body {
   display: grid;
   display: flex;
   position: relative;
-  transition: all .3s ease-in-out;
-
 }
 .sidebar {
   background: $main-silver;
@@ -23,20 +21,27 @@ body {
     display: flex;
     justify-content: center;
     margin: 0;
-    padding: 5px;
+    min-height: $header-height;
+    align-items: center;
   }
    &__logo{
      padding: 20px;
      font-size: 40px;
      position: relative;
+     transition: all .3s ease-in-out;
      margin: 0;
+     opacity: 1;
+
      &__txt {
       background: $main-white;
-     color: $main-black;
+      color: $main-black;
+      border-radius: 15px;
+      width: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
       margin: 0;
+      opacity: 1;
      }
    }
 }
@@ -44,6 +49,7 @@ body {
 	display: flex;
   position: relative;
 	flex-direction: column;
+  transform: translateX(0px);
 	justify-content: space-between;
 	width: 30px;
 	height: 20px;
@@ -63,8 +69,7 @@ body {
   }
 }
 .activebrgr{
-  position: absolute;
-  left: 12px;
+  transform: translateX(-65px);
   .dash{
     &:nth-of-type(1) {
       opacity: 0;
@@ -83,7 +88,7 @@ body {
     background: $main-black;
     box-sizing: border-box;
     padding: 2px 0 2px 20px;
-    min-height: 44px;
+    min-height: $header-height;
     display: flex;
     align-items: center;
   }
@@ -94,11 +99,13 @@ body {
     list-style: none;
     margin-bottom: 10px;
     display: flex;
+    color: $main-white;
     overflow: hidden;
     flex-wrap: nowrap;
     .fa{
       margin-right: 20px;
       display: block;
+      color: $main-white;
     }
   }
 }
@@ -109,11 +116,16 @@ body {
 .activeContainer {
   .sidebar__title {
     width: 100%;
-    text-indent: -9999px;
-  }
+    text-indent: -9999px; 
+   }
   .sidebar__logo{
     position: absolute;
     left: -200px;
+    opacity: 0;
+    overflow: hidden;
+    &__txt{ 
+      opacity: 0;
+    }
   }
   .burger .dash:nth-of-type(3) {
     position: absolute;
