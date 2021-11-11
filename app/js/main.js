@@ -1,6 +1,6 @@
-let burger = document.querySelector(".burger");
-let container = document.getElementById('container')
-let sidebar = document.getElementById('sidebar')
+const burger = document.querySelector(".burger");
+const container = document.getElementById('container')
+const sidebar = document.getElementById('sidebar')
 burger.addEventListener("click", () => {
     burger.classList.toggle("activebrgr");
     container.classList.toggle("activeContainer");
